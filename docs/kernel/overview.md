@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Kernel is the core of Project Horizon — a Go API built as a modular monolith. It handles all CRUD operations, business logic, and serves as the central coordination point for the system.
+The Kernel is the core of Project Horizon — a Go API built as a modular monolith. It handles all CRUD operations, business logic, and serves as the central coordination point for the system. All client traffic reaches the Kernel through the API Gateway.
 
 ## Language - **Go**
 Go is already in stack for satellites and domain logic is simple enough to not bring heavy backend frameworks like Spring Boot or ASP.NET. Also, I don't want to introduce new runtime platform (JVM/.NET), it will be new building step, new CI/CD pipeline, etc.

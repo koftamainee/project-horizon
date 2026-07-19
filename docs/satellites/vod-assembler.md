@@ -32,8 +32,8 @@ The assembler does not do heavy transcoding, The main tasks are generating text 
 
 ### Published
 
-| Subject     | Description                                 |
-|-------------|---------------------------------------------|
-| `vod.ready` | Notify Kernel that VOD assembly is complete |
+| Subject     | Description                                  |
+|-------------|----------------------------------------------|
+| `vod.ready` | Notify Kernel that VOD assembly is complete  |
 
 

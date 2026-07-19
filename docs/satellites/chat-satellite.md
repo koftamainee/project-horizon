@@ -25,7 +25,7 @@ The Chat satellite is a dedicated microservice for real-time chat.
 
 ## WebSocket Protocol
 
-**Connection:** `ws://<host>/ws?token=<jwt>`
+**Connection:** `wss://<host>/ws?token=<jwt>`
 
 ### Events
 

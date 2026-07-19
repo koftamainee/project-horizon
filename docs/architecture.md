@@ -24,5 +24,15 @@ The system follows a hybrid, so called - orbital architecture. We have kernel - 
 | Financial database     | Tigerbeetle                  | -          |
 | VOD storage            | MinIO                        | -          |
 | Video gateway          | Nginx                        | -          |
+| API Gateway            | Nginx                        | -          |
+
+## Traffic Flow
+
+```
+Client -> Frontend
+Frontend -> API Gateway -> Kernel
+Frontend -> API Gateway -> Chat Satellite
+Streamer -> SRS
+```
 
 Reference `protocols.md` for info on service interactions, `kernel/` for description of kernel and its modules, `satellites/` for descriptions of each satellite and `infra/` for database / third party tools related stuff.
