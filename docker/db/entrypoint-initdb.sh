@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+sed \
+  -e "s|\${KERNEL_AUTH_PASSWORD}|${KERNEL_AUTH_PASSWORD}|g" \
+  -e "s|\${KERNEL_PROFILE_PASSWORD}|${KERNEL_PROFILE_PASSWORD}|g" \
+  -e "s|\${KERNEL_STREAM_PASSWORD}|${KERNEL_STREAM_PASSWORD}|g" \
+  -e "s|\${KERNEL_FOLLOW_PASSWORD}|${KERNEL_FOLLOW_PASSWORD}|g" \
+  -e "s|\${KERNEL_VOD_PASSWORD}|${KERNEL_VOD_PASSWORD}|g" \
+  /docker-entrypoint-initdb.d/init.sql.template | psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"

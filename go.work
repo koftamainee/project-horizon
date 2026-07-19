@@ -1,0 +1,17 @@
+go 1.26.4
+
+use (
+    ./kernel
+    ./streaming-control-plane
+    ./vod-assembler
+    ./gopkg/config
+    ./gopkg/conn/minio
+    ./gopkg/conn/nats
+    ./gopkg/conn/pg
+    ./gopkg/http
+    ./gopkg/json
+    ./gopkg/log
+    ./gopkg/proto
+    ./gopkg/retry
+    ./gopkg/shutdown
+)
