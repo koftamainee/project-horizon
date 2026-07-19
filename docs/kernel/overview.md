@@ -58,6 +58,3 @@ Each kernel module has its own schema. Check module docs for more info
 
 Financial database for ledger operations. Not part of MVP.
 
-## Configuration
-
-TODO: 

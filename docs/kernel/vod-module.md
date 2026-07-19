@@ -70,6 +70,3 @@ NOTE: `status` is one of `assembling`, `ready`, `failed`. `manifest_path` and `t
 | GET    | `/vods/{id}`       | Get VOD by id        |
 | DELETE | `/vods/{id}`       | Delete a VOD         |
 
-## Configuration
-
-TODO:

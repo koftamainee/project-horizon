@@ -24,12 +24,14 @@ Native FFmpeg and codecs libraries. That's it.
 
 ### Consumed
 
-TODO: consume stream urls from stream control plane
+| Subject           | Queue Group  | Description                |
+|-------------------|--------------|----------------------------|
+| `transcode.start` | workers      | Start transcoding a stream |
+| `transcode.stop`  | workers      | Stop transcoding a stream  |
 
 ### Published
 
-TODO: publish heartbeats
+| Subject               | Description                                 |
+|-----------------------|---------------------------------------------|
+| `transcode.heartbeat` | Worker health and load reporting (periodic) |
 
-## Configuration
-
-TODO:

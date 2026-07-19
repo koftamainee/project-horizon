@@ -21,12 +21,16 @@ Service is I/O bound, don't need any specific runtime. Go is small, fast support
 
 ### Consumed
 
-TODO: consumes heartbeats from workers
+| Subject               | Queue Group  | Description                       |
+|-----------------------|--------------|-----------------------------------|
+| `transcode.heartbeat` | —            | Worker health and load monitoring |
 
 ### Published
 
-TODO: produce stream URL for workers
+| Subject           | Description                                 |
+|-------------------|---------------------------------------------|
+| `stream.started`  | Notify Kernel that a stream has begun       |
+| `stream.ended`    | Notify Kernel that a stream has ended       |
+| `transcode.start` | Tell a worker to begin transcoding a stream |
+| `transcode.stop`  | Tell a worker to stop transcoding a stream  |
 
-## Configuration
-
-TODO:

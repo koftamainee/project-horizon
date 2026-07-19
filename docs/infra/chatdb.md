@@ -17,4 +17,17 @@ ScyllaDB is the database for the Chat satellite. It stores chat message history 
 
 ## What It Stores
 
-TODO: describe exact structure
+### `chat.messages`
+
+All chat messages for a stream. Messages persist after the stream ends.
+
+| Column       | Type      | Description                 |
+|--------------|-----------|-----------------------------|
+| `channel_id` | UUID      | stream_id — partition key   |
+| `message_id` | TIMEUUID  | unique message ID, sort key |
+| `user_id`    | UUID      | author of the message       |
+| `content`    | TEXT      | message text                |
+| `created_at` | TIMESTAMP | when message was created    |
+
+**Primary Key:** `(channel_id, message_id)`
+**Clustering Order:** `message_id DESC` (newest first)

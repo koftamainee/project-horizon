@@ -39,7 +39,7 @@ The Profile module manages user profiles and account settings.
 
 ## gRPC Server
 
-TODO: probably for chat satellite
+TODO: Post-MVP — gRPC server for chat satellite
 
 ## API Endpoints
 
@@ -50,7 +50,3 @@ TODO: probably for chat satellite
 | PATCH  | `/users/me/profile`             | Update own profile              |
 | GET    | `/users/me/settings`            | Get own account settings        |
 | PATCH  | `/users/me/settings`            | Update own account settings     |
-
-## Configuration
-
-TODO:

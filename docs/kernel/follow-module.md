@@ -49,6 +49,3 @@ NOTE: Denormalized counts for fast reads. Updated on follow/unfollow.
 | GET    | `/users/{id}/following`     | List users a user follows       |
 | GET    | `/users/{id}/follow-status` | Check if following a user       |
 
-## Configuration
-
-TODO:

@@ -25,7 +25,3 @@ The Video Gateway is an nginx instance configured as a caching reverse proxy for
 - Simple configuration for HLS-specific caching rules
 - Easy to replace with CDN (Cloudflare, CloudFront) later
 
-
-## Configuration
-
-TODO:

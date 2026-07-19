@@ -68,7 +68,3 @@ Token storage:
 | GET    | `/auth/sessions`        | Get all active sessions                        |
 | DELETE | `/auth/sessions/{id}`   | Revoke session by id                           |
 | POST   | `/auth/password/change` | Change password                                |
-
-## Configuration
-
-TODO:

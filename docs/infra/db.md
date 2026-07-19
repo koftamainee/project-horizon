@@ -21,6 +21,3 @@ It is de-facto standard in relational ACID database sphere.
 | `follow`  | Follow module  | Follow relationships, counts    |
 | `vod`     | VOD module     | VOD records, assembly status    |
 
-## Configuration
-
-TODO:

@@ -71,6 +71,3 @@ NOTE: `status` is one of `idle`, `live`, `ended`. Idle status exists to allow st
 | PATCH  | `/streams/{id}`       | Update stream metadata                      |
 | GET    | `/categories`         | List available categories                   |
 
-## Configuration
-
-TODO: 

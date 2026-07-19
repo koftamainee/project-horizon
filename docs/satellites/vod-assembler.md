@@ -26,13 +26,14 @@ The assembler does not do heavy transcoding, The main tasks are generating text 
 
 ### Consumed
 
-TODO: consume stream.ended
+| Subject        | Queue Group    | Description                               |
+|----------------|----------------|-------------------------------------------|
+| `vod.assemble` | vod-assemblers | Generate VOD manifest, thumbnail, preview |
 
 ### Published
 
-TODO: produce vod.ready
+| Subject     | Description                                 |
+|-------------|---------------------------------------------|
+| `vod.ready` | Notify Kernel that VOD assembly is complete |
 
-## Configuration
-
-TODO:
 

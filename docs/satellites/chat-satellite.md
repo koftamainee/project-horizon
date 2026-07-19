@@ -15,9 +15,7 @@ The Chat satellite is a dedicated microservice for real-time chat.
 
 - WebSocket connection management
 - Real-time chat messaging
-- Online status tracking with heartbeat
 - Chat message persistence in ScyllaDB
-- User data enrichment via gRPC calls to Kernel
 
 ## Why Elixir
 
@@ -25,14 +23,21 @@ The Chat satellite is a dedicated microservice for real-time chat.
 - Phoenix Channels are purposefully built for tasks like this
 - Isolated from the Go Kernel to prevent WebSocket load from affecting CRUD operations
 
+## WebSocket Protocol
+
+**Connection:** `ws://<host>/ws?token=<jwt>`
+
+### Flow
+
+### Events
+
+| Direction        | Event           |
+|------------------|-----------------|
+| Client -> Server | Join channel    |
+| Client -> Server | Send message    |
+| Server -> Client | Message history |
+| Server -> Client | New message     |
+
 ## gRPC Client
 
-TODO: 
-
-## API
-
-TODO: WS docs
-
-## Configuration
-
-TODO:
+TODO: Post-MVP — user data enrichment (username, avatar) via Kernel
