@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "log/slog"
 
 func main() {
-	fmt.Println("[streaming-control-plane] started")
+	slog.Info("[streaming-control-plane] started")
 }

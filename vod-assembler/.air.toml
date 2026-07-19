@@ -1,0 +1,23 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  entrypoint = ["./tmp/vod"]
+  cmd = "go build -o ./tmp/vod ./vod-assembler/cmd/vod-assembler/main.go"
+  delay = 1000
+  exclude_dir = ["tmp", "docs", "docker", "kernel", "streaming-control-plane", "transcoding-worker", "chat-satellite", ".git"]
+  include_ext = ["go"]
+  send_interrupt = true
+  stop_on_error = true
+
+[log]
+  time = false
+
+[color]
+  main    = "magenta"
+  watcher = "cyan"
+  build   = "yellow"
+  runner  = "green"
+
+[misc]
+  clean_on_exit = true

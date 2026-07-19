@@ -1,0 +1,57 @@
+site_name: Project Horizon
+site_url: https://koftamainee.github.io/project-horizon/
+repo_url: https://github.com/koftamainee/project-horizon
+repo_name: koftamainee/project-horizon
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+
+nav:
+  - Architecture: architecture.md
+  - Kernel:
+      - Overview: kernel/overview.md
+      - Auth: kernel/auth-module.md
+      - Profile: kernel/profile-module.md
+      - Stream: kernel/stream-module.md
+      - Follow: kernel/follow-module.md
+      - VOD: kernel/vod-module.md
+  - Satellites:
+      - API Gateway: satellites/api-gateway.md
+      - Streaming Control Plane: satellites/streaming-control-plane.md
+      - Chat Satellite: satellites/chat-satellite.md
+      - VOD Assembler: satellites/vod-assembler.md
+      - Transcoding Worker: satellites/transcoding-worker.md
+      - Media Server: satellites/media-server.md
+      - Video Gateway: satellites/video-gateway.md
+  - Infrastructure:
+      - Database: infra/db.md
+      - Message Queue: infra/message-queue.md
+      - Object Storage: infra/object-storage.md
+      - TigerBeetle: infra/tigerbeetle.md
+      - ChatDB: infra/chatdb.md
+  - Client:
+      - Web: client/web.md
+      - Flutter: client/flutter.md
+
+markdown_extensions:
+  - tables
+  - admonitions
+  - toc:
+      permalink: true

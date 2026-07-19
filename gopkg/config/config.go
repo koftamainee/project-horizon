@@ -107,7 +107,7 @@ func setField(v reflect.Value, raw string) error {
 	switch v.Kind() {
 	case reflect.String:
 		v.SetString(raw)
-	case reflect.Int, reflect.Int64:
+	case reflect.Int, reflect.Int32, reflect.Int64:
 		if v.Type() == reflect.TypeOf(time.Duration(0)) {
 			d, err := time.ParseDuration(raw)
 			if err != nil {

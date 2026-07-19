@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"log/slog"
+)
 
 func main() {
-	fmt.Println("[kernel] started on :8080")
+	slog.Info("[kernel] started on :8080")
 }

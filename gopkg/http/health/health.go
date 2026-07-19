@@ -42,7 +42,11 @@ func (h *Health) Liveness() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		data, _ := json.Marshal(map[string]string{"status": "ok"})
+		data, err := json.Marshal(map[string]string{"status": "ok"})
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		_, _ = w.Write(data)
 	}
 }
@@ -76,10 +80,14 @@ func (h *Health) Readiness() http.HandlerFunc {
 			w.WriteHeader(http.StatusServiceUnavailable)
 		}
 
-		data, _ := json.Marshal(map[string]any{
+		data, err := json.Marshal(map[string]any{
 			"status": statusStr(allOK),
 			"checks": results,
 		})
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		_, _ = w.Write(data)
 	}
 }

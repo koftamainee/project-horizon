@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "log/slog"
 
 func main() {
-	fmt.Println("[vod-assembler] started")
+	slog.Info("[vod-assembler] started")
 }

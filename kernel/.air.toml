@@ -9,7 +9,6 @@ tmp_dir = "tmp"
   include_ext = ["go"]
   send_interrupt = true
   stop_on_error = true
-  env_files = [".env"]
 
 [log]
   time = false
