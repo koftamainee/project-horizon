@@ -19,6 +19,7 @@ It is de-facto standard in relational ACID database sphere.
 | `profile` | Profile module | User profiles, settings         |
 | `stream`  | Stream module  | Streams, categories             |
 | `follow`  | Follow module  | Follow relationships, counts    |
+| `vod`     | VOD module     | VOD records, assembly status    |
 
 ## Configuration
 

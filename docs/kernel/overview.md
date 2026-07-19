@@ -39,6 +39,14 @@ Manages follower/subscriber relationships and access control.
 
 - Follow/unfollow users
 
+### VOD
+
+Manages Video-On-Demand records and post-stream assembly.
+
+- Decide whether to create VOD based on user preferences
+- Track VOD lifecycle
+- Store VOD metadata
+
 ## Database
 
 ### PostgreSQL

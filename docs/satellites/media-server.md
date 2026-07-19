@@ -28,10 +28,6 @@ SRS is older, written in C++ and more performant. Also, it supports cluster mode
 4. SRS forwards the stream to transcoding workers by request from them
 5. SRS calls `on_unpublish` hook registered from streaming control plane
 
-## Client-Facing Protocols
-
-TODO:
-
 ## Configuration
 
 TODO:

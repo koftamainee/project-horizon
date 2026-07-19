@@ -34,6 +34,7 @@ The Profile module manages user profiles and account settings.
 | `user_id`    | UUID        | PK, FK -> auth.users.id |
 | `language`   | TEXT        | NOT NULL, DEFAULT 'en'  |
 | `timezone`   | TEXT        | NOT NULL, DEFAULT 'UTC' |
+| `save_vod`   | BOOLEAN     | NOT NULL, DEFAULT true  |
 | `updated_at` | TIMESTAMPTZ | NOT NULL, DEFAULT now() |
 
 ## gRPC Server
