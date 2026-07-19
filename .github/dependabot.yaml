@@ -5,22 +5,16 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    labels:
-      - dependencies
     open-pull-requests-limit: 10
 
   - package-ecosystem: docker
     directory: /
     schedule:
       interval: weekly
-    labels:
-      - dependencies
     open-pull-requests-limit: 5
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
-    labels:
-      - dependencies
     open-pull-requests-limit: 5

@@ -9,7 +9,6 @@ package streamv1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -98,7 +97,7 @@ var File_stream_v1_events_proto protoreflect.FileDescriptor
 
 const file_stream_v1_events_proto_rawDesc = "" +
 	"\n" +
-	"\x16stream/v1/events.proto\x12\tstream.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x0f\n" +
+	"\x16stream/v1/events.proto\x12\tstream.v1\"\x0f\n" +
 	"\rStreamStarted\"\r\n" +
 	"\vStreamEndedB@Z>koftamainee.dev/project-horizon/gopkg/proto/stream/v1;streamv1b\x06proto3"
 
