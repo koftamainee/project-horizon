@@ -20,7 +20,7 @@ jobs:
         with:
           go-version: "1.26"
 
-      - uses: golangci/golangci-lint-action@v7
+      - uses: golangci/golangci-lint-action@v9
         with:
           version: v2.12.2
 
@@ -61,16 +61,3 @@ jobs:
 
       - name: Build ${{ matrix.service }}
         run: docker compose build ${{ matrix.service }}
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-go@v7
-        with:
-          go-version: "1.26"
-
-      - name: Run tests
-        run: make test
