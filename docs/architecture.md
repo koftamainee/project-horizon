@@ -17,11 +17,12 @@ The system follows a hybrid, so called - orbital architecture. We have kernel - 
 | Chat satellite         | Phoneix framework            | Elixir     |
 | Client (mobile)        | Flutter                      | Dart       |
 | Client (web)           | React/Nuxt (TBD)             | TypeScript |
-| Media server           | SRS (Simple Realtime Server) | -          |
+| Ingest server          | SRS (Simple Realtime Server) | -          |
 | Message Queue / Events | NATS + JetStream             | -          |
 | Primary database       | PostgreSQL                   | -          |
 | Chat database          | ScyllaDB                     | -          |
 | Financial database     | Tigerbeetle                  | -          |
 | VOD storage            | MinIO                        | -          |
+| Video gateway          | Nginx                        | -          |
 
 Reference `protocols.md` for info on service interactions, `kernel/` for description of kernel and its modules, `satellites/` for descriptions of each satellite and `infra/` for database / third party tools related stuff.
