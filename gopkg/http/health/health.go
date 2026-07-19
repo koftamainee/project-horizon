@@ -50,15 +50,19 @@ func (h *Health) Liveness() http.HandlerFunc {
 func (h *Health) Readiness() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		h.mu.RLock()
-		defer h.mu.RUnlock()
+		checks := make(map[string]CheckFunc, len(h.checks))
+		for k, v := range h.checks {
+			checks[k] = v
+		}
+		h.mu.RUnlock()
 
 		ctx, cancel := context.WithTimeout(r.Context(), h.timeout)
 		defer cancel()
 
-		results := make(map[string]CheckResult, len(h.checks))
+		results := make(map[string]CheckResult, len(checks))
 		allOK := true
 
-		for name, check := range h.checks {
+		for name, check := range checks {
 			if err := check(ctx); err != nil {
 				results[name] = CheckResult{Status: "error", Error: err.Error()}
 				allOK = false

@@ -18,12 +18,12 @@ func (e *Error) Error() string {
 }
 
 func encode(w http.ResponseWriter, status int, data any) error {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
 	b, err := json.Marshal(data)
 	if err != nil {
 		return err
 	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(status)
 	_, err = w.Write(b)
 	return err
 }

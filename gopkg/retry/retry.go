@@ -18,10 +18,11 @@ func Get[T any](ctx context.Context, fn func() (T, error), attempts int, delay t
 			return zero, err
 		}
 
+		backoff := delay * time.Duration(1<<uint(i))
 		select {
 		case <-ctx.Done():
 			return zero, ctx.Err()
-		case <-time.After(delay):
+		case <-time.After(backoff):
 		}
 	}
 
@@ -36,10 +37,11 @@ func Do(ctx context.Context, fn func() error, attempts int, delay time.Duration)
 			return err
 		}
 
+		backoff := delay * time.Duration(1<<uint(i))
 		select {
 		case <-ctx.Done():
 			return ctx.Err()
-		case <-time.After(delay):
+		case <-time.After(backoff):
 		}
 	}
 

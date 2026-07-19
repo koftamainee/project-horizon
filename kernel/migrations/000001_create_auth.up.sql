@@ -24,3 +24,14 @@ CREATE TABLE auth.refresh_tokens (
 );
 
 CREATE INDEX idx_refresh_tokens_user_id ON auth.refresh_tokens (user_id) WHERE revoked_at IS NULL;
+
+CREATE OR REPLACE FUNCTION set_updated_at() RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = now();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_users_updated_at
+    BEFORE UPDATE ON auth.users
+    FOR EACH ROW EXECUTE FUNCTION set_updated_at();

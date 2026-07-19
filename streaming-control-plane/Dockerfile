@@ -1,8 +1,7 @@
 FROM golang:1.26-alpine AS builder
 
 WORKDIR /app
-
-COPY go.work go.work.sum ./
+ENV GOWORK=off
 
 COPY gopkg/config/go.mod gopkg/config/go.sum ./gopkg/config/
 COPY gopkg/conn/minio/go.mod gopkg/conn/minio/go.sum ./gopkg/conn/minio/
@@ -14,9 +13,9 @@ COPY gopkg/log/go.mod gopkg/log/go.sum ./gopkg/log/
 COPY gopkg/proto/go.mod gopkg/proto/go.sum ./gopkg/proto/
 COPY gopkg/retry/go.mod gopkg/retry/go.sum ./gopkg/retry/
 COPY gopkg/shutdown/go.mod gopkg/shutdown/go.sum ./gopkg/shutdown/
-COPY streaming-control-plane/go.mod ./streaming-control-plane/
+COPY streaming-control-plane/go.mod streaming-control-plane/go.sum ./streaming-control-plane/
 
-RUN go mod download
+RUN go mod download 2>/dev/null || true
 
 COPY gopkg/ ./gopkg/
 COPY streaming-control-plane/ ./streaming-control-plane/
@@ -25,6 +24,10 @@ RUN go build -o /streaming-control-plane ./streaming-control-plane/cmd/streaming
 
 FROM alpine:3.20
 
+RUN adduser -D -u 1001 appuser
+
 COPY --from=builder /streaming-control-plane /streaming-control-plane
+
+USER appuser
 
 CMD ["/streaming-control-plane"]

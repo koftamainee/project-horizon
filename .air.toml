@@ -1,0 +1,24 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  entrypoint = ["./tmp/kernel"]
+  cmd = "go build -o ./tmp/kernel ./kernel/cmd/kernel/main.go"
+  delay = 1000
+  exclude_dir = ["tmp", "docs", "docker", "streaming-control-plane", "vod-assembler", "transcoding-worker", "chat-satellite", ".git"]
+  include_ext = ["go"]
+  send_interrupt = true
+  stop_on_error = true
+  env_files = [".env"]
+
+[log]
+  time = false
+
+[color]
+  main    = "magenta"
+  watcher = "cyan"
+  build   = "yellow"
+  runner  = "green"
+
+[misc]
+  clean_on_exit = true

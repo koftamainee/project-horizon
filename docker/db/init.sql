@@ -3,16 +3,20 @@ CREATE ROLE kernel_profile WITH LOGIN PASSWORD '${KERNEL_PROFILE_PASSWORD}';
 CREATE ROLE kernel_stream WITH LOGIN PASSWORD '${KERNEL_STREAM_PASSWORD}';
 CREATE ROLE kernel_follow WITH LOGIN PASSWORD '${KERNEL_FOLLOW_PASSWORD}';
 CREATE ROLE kernel_vod WITH LOGIN PASSWORD '${KERNEL_VOD_PASSWORD}';
+CREATE ROLE migrator WITH LOGIN PASSWORD '${MIGRATOR_PASSWORD}';
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
 REVOKE CONNECT ON DATABASE horizon FROM PUBLIC;
-GRANT CONNECT ON DATABASE horizon TO app_admin, kernel_auth, kernel_profile, kernel_stream, kernel_follow, kernel_vod;
+GRANT CONNECT ON DATABASE horizon TO app_admin, kernel_auth, kernel_profile, kernel_stream, kernel_follow, kernel_vod, migrator;
 
 CREATE SCHEMA IF NOT EXISTS auth;
 CREATE SCHEMA IF NOT EXISTS profile;
 CREATE SCHEMA IF NOT EXISTS stream;
 CREATE SCHEMA IF NOT EXISTS follow;
 CREATE SCHEMA IF NOT EXISTS vod;
+
+GRANT CREATE, USAGE ON SCHEMA auth, profile, stream, follow, vod TO migrator;
+GRANT USAGE, CREATE ON SCHEMA public TO migrator;
 
 ALTER ROLE kernel_auth SET search_path = auth, public;
 GRANT USAGE ON SCHEMA auth TO kernel_auth;
