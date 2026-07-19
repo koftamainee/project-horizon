@@ -2,6 +2,8 @@ package middleware
 
 import (
 	"context"
+	"crypto/rand"
+	"encoding/hex"
 	"fmt"
 	"log/slog"
 	"net/http"
@@ -91,11 +93,9 @@ func generateID() string {
 }
 
 func randomHex(n int) string {
-	const hex = "0123456789abcdef"
-	b := make([]byte, n)
-	for i := range b {
-		b[i] = hex[time.Now().UnixNano()%16]
-		time.Sleep(1)
+	b := make([]byte, n/2)
+	if _, err := rand.Read(b); err != nil {
+		panic(err)
 	}
-	return string(b)
+	return hex.EncodeToString(b)
 }
