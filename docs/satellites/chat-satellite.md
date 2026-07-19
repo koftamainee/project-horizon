@@ -27,8 +27,6 @@ The Chat satellite is a dedicated microservice for real-time chat.
 
 **Connection:** `ws://<host>/ws?token=<jwt>`
 
-### Flow
-
 ### Events
 
 | Direction        | Event           |
