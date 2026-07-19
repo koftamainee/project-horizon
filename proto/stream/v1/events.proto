@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package stream.v1;
+
+option go_package = "koftamainee.dev/project-horizon/gopkg/proto/stream/v1;streamv1";
+
+import "google/protobuf/timestamp.proto";
+
+message StreamStarted {
+// TODO
+}
+
+message StreamEnded {
+// TODO
+}

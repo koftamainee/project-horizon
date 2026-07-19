@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package vod.v1;
+
+option go_package = "koftamainee.dev/project-horizon/gopkg/proto/vod/v1;vodv1";
+
+message VodAssemble {
+  // TODO
+}
+
+message VodReady {
+  // TODO
+}

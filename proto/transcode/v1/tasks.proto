@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package transcode.v1;
+
+option go_package = "koftamainee.dev/project-horizon/gopkg/proto/transcode/v1;transcodev1";
+
+message TranscodeStart {
+  // TODO
+}
+
+message TranscodeStop {
+  // TODO
+}
+
+message TranscodeHeartbeat {
+  // TODO
+}
