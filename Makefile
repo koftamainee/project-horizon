@@ -2,17 +2,31 @@
        install-air lint lint-fix db-shell db-reset nats-shell
 
 dev: infra
-	tmux new-window -t horizon -n proto "make proto-watch"
-	tmux new-window -t horizon -n kernel "air -c kernel/.air.toml"
-	tmux new-window -t horizon -n scp "air -c streaming-control-plane/.air.toml"
-	tmux new-window -t horizon -n vod "air -c vod-assembler/.air.toml"
-	tmux select-window -t horizon:shell
-	tmux attach -t horizon
+	if [ -n "$$TMUX" ]; then \
+		tmux new-window -n proto "make proto-watch"; \
+		tmux new-window -n kernel "air -c kernel/.air.toml"; \
+		tmux new-window -n scp "air -c streaming-control-plane/.air.toml"; \
+		tmux new-window -n vod "air -c vod-assembler/.air.toml"; \
+		tmux select-window -t shell; \
+	else \
+		tmux new-window -t horizon -n proto "make proto-watch"; \
+		tmux new-window -t horizon -n kernel "air -c kernel/.air.toml"; \
+		tmux new-window -t horizon -n scp "air -c streaming-control-plane/.air.toml"; \
+		tmux new-window -t horizon -n vod "air -c vod-assembler/.air.toml"; \
+		tmux select-window -t horizon:shell; \
+		tmux attach -t horizon; \
+	fi
 
 infra:
-	tmux new-session -d -s horizon -n shell
-	tmux send-keys -t horizon:shell "cd $(shell pwd)" C-m
-	tmux new-window -t horizon -n infra "docker compose -f docker-compose.dev.yaml up"
+	if [ -n "$$TMUX" ]; then \
+		tmux new-window -n shell; \
+		tmux send-keys -t shell "cd $(shell pwd)" C-m; \
+		tmux new-window -n infra "docker compose -f docker-compose.dev.yaml up"; \
+	else \
+		tmux new-session -d -s horizon -n shell; \
+		tmux send-keys -t horizon:shell "cd $(shell pwd)" C-m; \
+		tmux new-window -t horizon -n infra "docker compose -f docker-compose.dev.yaml up"; \
+	fi
 
 dev-scp:
 	tmux new-window -t horizon -n scp "air -c streaming-control-plane/.air.toml"
@@ -21,7 +35,6 @@ dev-vod:
 	tmux new-window -t horizon -n vod "air -c vod-assembler/.air.toml"
 
 stop:
-	-tmux kill-session -t horizon 2>/dev/null
 	docker compose -f docker-compose.dev.yaml down 2>/dev/null
 
 logs:

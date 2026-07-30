@@ -12,7 +12,7 @@ services:
       KERNEL_VOD_PASSWORD: ${KERNEL_VOD_PASSWORD}
       MIGRATOR_PASSWORD: ${MIGRATOR_PASSWORD}
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U app_admin -d horizon" ]
+      test: ["CMD-SHELL", "pg_isready -U app_admin -d horizon"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -25,7 +25,7 @@ services:
 
   message-queue:
     image: nats:2.14-alpine
-    command: [ "-js" ]
+    command: ["-js"]
     networks:
       - horizon
 
@@ -33,7 +33,14 @@ services:
     image: migrate/migrate:v4.19.1
     volumes:
       - ./kernel/migrations:/migrations
-    command: [ "-path", "/migrations", "-database", "postgres://migrator:${MIGRATOR_PASSWORD}@db:5432/horizon?sslmode=disable", "up" ]
+    command:
+      [
+        "-path",
+        "/migrations",
+        "-database",
+        "postgres://migrator:${MIGRATOR_PASSWORD}@db:5432/horizon?sslmode=disable",
+        "up",
+      ]
     depends_on:
       db:
         condition: service_healthy
