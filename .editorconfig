@@ -27,3 +27,30 @@ trim_trailing_whitespace = false
 
 [Makefile]
 indent_style = tab
+
+[*.{ex,exs}]
+indent_style = space
+indent_size = 2
+
+[*.sh]
+indent_style = space
+indent_size = 2
+
+[*.{cpp,h,hpp,cc,cxx}]
+indent_style = space
+indent_size = 4
+
+[CMakeLists.txt]
+indent_style = space
+indent_size = 2
+
+[*.conf]
+indent_style = space
+indent_size = 4
+
+[Dockerfile]
+indent_style = space
+indent_size = 4
+
+[*.png]
+binary = true
