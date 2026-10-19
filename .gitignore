@@ -3,3 +3,6 @@
 .env
 tmp/
 site/
+kernel/kernel
+streaming-control-plane/streaming-control-plane
+vod-assembler/vod-assembler
