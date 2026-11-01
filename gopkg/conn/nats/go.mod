@@ -3,7 +3,7 @@ module koftamainee.dev/project-horizon/gopkg/conn/nats
 go 1.26.4
 
 require (
-	github.com/nats-io/nats.go v1.54.0
+	github.com/nats-io/nats.go v1.55.0
 	google.golang.org/protobuf v1.36.12
 )
 
