@@ -1,3 +1,3 @@
 module koftamainee.dev/project-horizon/gopkg/shutdown
 
-go 1.26
+go 1.26.0
